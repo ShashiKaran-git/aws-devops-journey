@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2026-03-25T10:30:56Z"
+  labels:
+    app: ku-app
+  name: ku-app
+  namespace: default
+  resourceVersion: "28034"
+  uid: c0095332-e0bd-471e-8671-9abe3c4f6d4d
+spec:
+  clusterIP: 10.103.115.106
+  clusterIPs:
+  - 10.103.115.106
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - nodePort: 31925
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: ku-app
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}
