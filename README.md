@@ -38,6 +38,13 @@ Personal AWS learning journey - hands-on projects and scripts.
 - Git Bash
 - AWS Console
 
+## Kubernetes
+* Understood Pods, Deployments, ReplicaSets and how they relate
+* Watched reconciliation loop live — deleted a pod, saw Kubernetes replace it automatically
+* Learned RollingUpdate vs Recreate vs Canary deployment strategies
+* Created a Service and exposed nginx app via NodePort
+* Accessed live app in browser via minikube
+
 ## Roadmap
 - [x] EC2
 - [x] IAM
