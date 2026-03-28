@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: flask-app
+  labels:
+    project: flask-webapp
+    environment: development
+
