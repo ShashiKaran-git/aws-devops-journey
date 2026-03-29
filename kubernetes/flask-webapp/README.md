@@ -2,6 +2,27 @@
 
 A production-grade Python Flask application deployed on Kubernetes.
 
+## Architecture
+
+User
+  ↓
+NodePort Service (Port: 30080)
+  ↓
+Kubernetes Deployment (3 Replicas, Rolling Updates)
+  ├── Pod 1 (Flask App + Nginx)
+  ├── Pod 2 (Flask App + Nginx)
+  └── Pod 3 (Flask App + Nginx)
+
+Configuration:
+  ├── ConfigMap
+  │     ├── APP_MESSAGE
+  │     ├── ENVIRONMENT
+  │     └── VERSION
+  │
+  └── Secret
+        ├── DB_PASSWORD
+        └── SECRET_KEY
+
 ## What This Project Demonstrates
 - Containerizing a Python Flask app with Docker
 - Kubernetes Deployment with 3 replicas and RollingUpdate strategy
