@@ -3,7 +3,7 @@
 A production-grade Python Flask application deployed on Kubernetes.
 
 ## Architecture
-
+```
 User
   ↓
 NodePort Service (Port: 30080)
@@ -22,6 +22,8 @@ Configuration:
   └── Secret
         ├── DB_PASSWORD
         └── SECRET_KEY
+
+```
 
 ## What This Project Demonstrates
 - Containerizing a Python Flask app with Docker
