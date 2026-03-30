@@ -44,14 +44,17 @@ Personal AWS learning journey - hands-on projects and scripts.
 * Learned RollingUpdate vs Recreate vs Canary deployment strategies
 * Created a Service and exposed nginx app via NodePort
 * Accessed live app in browser via minikube
-
+* Built production grade Flask webapp deployed on Kubernetes
+* ConfigMaps, Secrets, Health Probes, Resource limits
+* Docker image published: shashikarandev/flask-webapp:v1
+  
 ## Roadmap
 - [x] EC2
 - [x] IAM
 - [x] S3
 - [x] VPC
-- [ ] EKS
-- [ ] Kubernetes
+- [x] Kubernetes
+- [x] EKS (theory complete)
 - [ ] Terraform
 - [ ] DevSecOps tools
 
