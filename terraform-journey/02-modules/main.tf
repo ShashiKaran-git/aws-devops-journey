@@ -5,6 +5,14 @@ terraform {
             version = "~> 5.0"
         }
     }
+
+    backend "s3" {
+        bucket             = "shashi-terraform-state-2026"
+        key                = "02-modules/terraform.tfstate"
+        region             = "ap-south-1"
+        dynamodb_table     = "terraform-state-locks"
+        encrypt            = true
+    }
 }
 
 provider "aws" {
