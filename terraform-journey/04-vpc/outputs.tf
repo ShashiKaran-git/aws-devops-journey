@@ -27,3 +27,8 @@ output "ssh_security_group_id" {
   description = "The ID of the SSH security group"
   value       = aws_security_group.ssh.id
 }
+
+output "private_route_table_id" {
+  description = "The ID of the private route table"
+  value       = aws_route_table.private.id
+}
