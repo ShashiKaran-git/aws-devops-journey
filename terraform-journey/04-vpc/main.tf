@@ -68,6 +68,28 @@ resource "aws_subnet" "private" {
 }
 
 # ─────────────────────────────────────────
+# Second Public Subnet (ap-south-1b) — required for EKS
+# ─────────────────────────────────────────
+resource "aws_subnet" "public_2" {
+  vpc_id            = aws_vpc.main.id
+  cidr_block        = "10.0.3.0/24"
+  availability_zone = "ap-south-1b"
+
+  map_public_ip_on_launch = true
+
+  tags = {
+    Name    = "${var.project_name}-public-subnet-2"
+    Project = var.project_name
+  }
+}
+
+# Associate second public subnet with public route table
+resource "aws_route_table_association" "public_2" {
+  subnet_id      = aws_subnet.public_2.id
+  route_table_id = aws_route_table.public.id
+}
+
+# ─────────────────────────────────────────
 # Public Route Table
 # ─────────────────────────────────────────
 resource "aws_route_table" "public" {

@@ -13,6 +13,11 @@ output "private_subnet_id" {
   value       = aws_subnet.private.id
 }
 
+output "public_subnet_2_id" {
+  description = "ID of the second public subnet (ap-south-1b)"
+  value       = aws_subnet.public_2.id
+}
+
 output "internet_gateway_id" {
   description = "The ID of the Internet Gateway"
   value       = aws_internet_gateway.main.id
