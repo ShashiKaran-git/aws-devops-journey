@@ -77,5 +77,6 @@ resource "aws_instance" "flask_app" {
     Environment = "dev"
     Project     = var.project_name
     ManagedBy   = "terraform"
+    Tested      = "pr-pipeline"
   }
 }
