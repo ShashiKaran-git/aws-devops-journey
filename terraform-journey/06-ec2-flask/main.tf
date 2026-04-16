@@ -76,5 +76,6 @@ resource "aws_instance" "flask_app" {
     Name        = "${var.project_name}-flask-app"
     Environment = "dev"
     Project     = var.project_name
+    ManagedBy   = "terraform"
   }
 }
