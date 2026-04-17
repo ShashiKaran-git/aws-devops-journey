@@ -98,7 +98,7 @@ aws-devops-journey/
 │   └── eks-flask/
 ├── assets/
 └── README.md
-
+```
 ## 🛠 Tools & Technologies
 
 - **Infrastructure:** Terraform, AWS  
