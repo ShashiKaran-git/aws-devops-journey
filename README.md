@@ -103,8 +103,6 @@ aws-devops-journey/
 ---
 
 ## 🔥 Tools Section (FIXED)
-
-```markdown
 ## 🛠 Tools & Technologies
 
 - **Infrastructure:** Terraform, AWS  
