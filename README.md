@@ -1,63 +1,108 @@
-# AWS DevOps Learning
+🚀 AWS DevOps Journey
+Production grade DevOps system built from scratch
+Not tutorials. Real infrastructure. Real automation.
 
-Personal AWS learning journey - hands-on projects and scripts.
+🌍 Live Project Flask App on AWS
+A containerized Flask application deployed on AWS using Infrastructure as Code and CI/CD.
+🔗 Architecture (High Level)
+User → GitHub → GitHub Actions → Terraform → AWS EC2 → Flask App
 
-## What I built
+## 📸 Proof (Real Execution)
+### 🔍 Terraform Plan (PR Comment)
+![Terraform Plan](assets/pr-plan.png)
 
-### EC2
-- Launched and connected to EC2 instance via SSH
-- Understood AMI, instance types, key pairs, security groups
-- Terminated instances properly to avoid billing
+### ⚙️ CI/CD Pipeline (GitHub Actions)
+![GitHub Actions](assets/githubactions.png)
 
-### IAM
-- Secured root account with MFA
-- Created IAM user with least privilege
-- Configured AWS CLI with access keys
+### 🌍 EC2 Running on AWS
+![EC2](assets/EC2.png)
 
-### S3
-- Created S3 bucket via CLI
-- Uploaded and downloaded files
-- Hosted static website on S3
-- Configured bucket policies for public access
+### 🔐 OIDC Authentication Setup
+![OIDC](assets/IAMOIDC.png)
 
-### VPC
-- Understood VPC components — subnets, internet gateway, route tables
-- Explored default VPC using CLI
-- Built complete custom VPC from scratch
-- Created public subnet with internet access
-- Configured route table and internet gateway
-- Automated entire VPC setup with bash script
+⚙️ Stack
 
-## Scripts
-- `scripts/launch-ec2.sh` - Launch EC2 instance from CLI
-- `scripts/s3-setup.sh` - Create and configure S3 bucket
-- `scripts/vpc-setup.sh` - Build complete VPC with public subnet
+Docker → Docker Hub → Terraform → GitHub Actions → AWS EC2
 
-## Tools Used
-- AWS CLI
-- Git Bash
-- AWS Console
+🔥 What makes this production-grade
+No manual deployments - everything via Git workflow
+CI/CD pipeline with PR-based plan & controlled apply
+OIDC authentication - no AWS credentials stored
+Remote state in S3 + DynamoDB locking
+Dynamic AMI lookup (no hardcoding)
 
-## Kubernetes
-* Understood Pods, Deployments, ReplicaSets and how they relate
-* Watched reconciliation loop live — deleted a pod, saw Kubernetes replace it automatically
-* Learned RollingUpdate vs Recreate vs Canary deployment strategies
-* Created a Service and exposed nginx app via NodePort
-* Accessed live app in browser via minikube
-* Built production grade Flask webapp deployed on Kubernetes
-* ConfigMaps, Secrets, Health Probes, Resource limits
-* Docker image published: shashikarandev/flask-webapp:v1
-  
-## Roadmap
-- [x] EC2
-- [x] IAM
-- [x] S3
-- [x] VPC
-- [x] Kubernetes
-- [x] EKS (theory complete)
-- [ ] Terraform
-- [ ] DevSecOps tools
+🧱 Infrastructure Built
+🌐 Networking
+Custom VPC (10.0.0.0/16)
+Public + private subnets (multi-AZ)
+Internet Gateway + NAT Gateway
+Route tables + associations
+Security groups (least privilege)
 
-## Author
-Shashi Karan 
+💻 Compute
+EC2 provisioned via Terraform
+Docker installed via user_data
+Flask app deployed automatically
+No SSH, no manual steps
 
+📦 State Management
+S3 backend (shashi-terraform-state-2026)
+DynamoDB locking (terraform-state-locks)
+Remote state sharing across modules
+
+🔄 CI/CD Pipeline
+
+File: .github/workflows/terraform.yml
+Trigger: PR & push to main (path filtered)
+Plan job: fmt → init → validate → plan → PR comment
+Apply job: runs only after merge
+Auth: AWS OIDC (temporary credentials, auto-expire)
+
+☸️ Kubernetes
+Flask app deployed on Kubernetes (minikube):
+3 replicas (RollingUpdate)
+ConfigMaps + Secrets
+Liveness & Readiness probes
+Resource limits
+NodePort Service
+Canary deployment tested
+
+Docker image: shashikarandev/flask-webapp:v1
+
+📚 Terraform Levels Completed
+Level	Description
+1	Basics: providers, resources, state
+2	Variables, outputs
+3	Modules, remote state
+4	VPC, subnets, networking
+5	NAT, EKS IAM roles
+6	EC2 + user_data + live deployment
+7	CI/CD pipeline + OIDC
+
+
+📁 Repository Structure
+aws-devops-journey/
+├── .github/workflows/terraform.yml
+├── terraform-journey/
+│   ├── 01-basics/
+│   ├── 02-modules/
+│   ├── 03-remote-state/
+│   ├── 04-vpc/
+│   ├── 05-eks/
+│   └── 06-ec2-flask/
+└── kubernetes/
+    ├── flask-webapp/
+    └── eks-flask/
+
+🛠 Tools & Technologies
+Infrastructure: Terraform, AWS
+Containers: Docker, Kubernetes
+CI/CD: GitHub Actions + OIDC
+Security: IAM, MFA, least privilege
+OS: Linux, Bash
+
+👨‍💻 Author
+G. Shashi Karan
+Hyderabad, India
+🔗 GitHub: https://github.com/ShashiKaran-git
+Linkdin: www.linkedin.com/in/shashikaran
