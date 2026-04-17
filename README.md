@@ -12,13 +12,13 @@ User → GitHub → GitHub Actions → Terraform → AWS EC2 → Flask App
 ![Terraform Plan](assets/pr-plan.png)
 
 ### ⚙️ CI/CD Pipeline (GitHub Actions)
-![GitHub Actions](assets/github actions.png)
+![GitHub Actions](assets/githubactions.png)
 
 ### 🌍 EC2 Running on AWS
 ![EC2](assets/EC2.png)
 
 ### 🔐 OIDC Authentication Setup
-![OIDC](assets/IAM OIDC.png)
+![OIDC](assets/IAMOIDC.png)
 
 ⚙️ Stack
 Docker → Docker Hub → Terraform → GitHub Actions → AWS EC2
