@@ -68,18 +68,22 @@ Canary deployment tested
 
 Docker image: shashikarandev/flask-webapp:v1
 
-📚 Terraform Levels Completed
-Level	Description
-1	Basics: providers, resources, state
-2	Variables, outputs
-3	Modules, remote state
-4	VPC, subnets, networking
-5	NAT, EKS IAM roles
-6	EC2 + user_data + live deployment
-7	CI/CD pipeline + OIDC
+## 📚 Terraform Levels Completed
+
+| Level | Description |
+|------|------------|
+| 1 | Basics: providers, resources, state |
+| 2 | Variables, outputs |
+| 3 | Modules, remote state |
+| 4 | VPC, subnets, networking |
+| 5 | NAT, EKS IAM roles |
+| 6 | EC2 + user_data + live deployment |
+| 7 | CI/CD pipeline + OIDC |
 
 
-📁 Repository Structure
+## 📁 Repository Structure
+
+```bash
 aws-devops-journey/
 ├── .github/workflows/terraform.yml
 ├── terraform-journey/
@@ -89,19 +93,30 @@ aws-devops-journey/
 │   ├── 04-vpc/
 │   ├── 05-eks/
 │   └── 06-ec2-flask/
-└── kubernetes/
-    ├── flask-webapp/
-    └── eks-flask/
+├── kubernetes/
+│   ├── flask-webapp/
+│   └── eks-flask/
+├── assets/
+└── README.md
 
-🛠 Tools & Technologies
-Infrastructure: Terraform, AWS
-Containers: Docker, Kubernetes
-CI/CD: GitHub Actions + OIDC
-Security: IAM, MFA, least privilege
-OS: Linux, Bash
 
-👨‍💻 Author
-G. Shashi Karan
-Hyderabad, India
-🔗 GitHub: https://github.com/ShashiKaran-git
-Linkdin: www.linkedin.com/in/shashikaran
+---
+
+## 🔥 Tools Section (FIXED)
+
+```markdown
+## 🛠 Tools & Technologies
+
+- **Infrastructure:** Terraform, AWS  
+- **Containers:** Docker, Kubernetes  
+- **CI/CD:** GitHub Actions + OIDC  
+- **Security:** IAM, MFA, least privilege  
+- **OS:** Linux, Bash  
+
+## 👨‍💻 Author
+
+**G. Shashi Karan**  
+Hyderabad, India  
+
+🔗 GitHub: https://github.com/ShashiKaran-git  
+🔗 LinkedIn: https://www.linkedin.com/in/shashikaran  
