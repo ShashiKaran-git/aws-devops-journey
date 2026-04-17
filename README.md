@@ -1,10 +1,15 @@
 🚀 AWS DevOps Journey
+
 Production grade DevOps system built from scratch
+
 Not tutorials. Real infrastructure. Real automation.
 
 🌍 Live Project Flask App on AWS
+
 A containerized Flask application deployed on AWS using Infrastructure as Code and CI/CD.
-🔗 Architecture (High Level)
+
+🔗 Architecture
+
 User → GitHub → GitHub Actions → Terraform → AWS EC2 → Flask App
 
 ## 📸 Proof (Real Execution)
