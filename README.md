@@ -12,16 +12,15 @@ User → GitHub → GitHub Actions → Terraform → AWS EC2 → Flask App
 ![Terraform Plan](assets/pr-plan.png)
 
 ### ⚙️ CI/CD Pipeline (GitHub Actions)
-![GitHub Actions](assets/githubactions.png)
+![GitHub Actions](assets/github actions.png)
 
 ### 🌍 EC2 Running on AWS
 ![EC2](assets/EC2.png)
 
 ### 🔐 OIDC Authentication Setup
-![OIDC](assets/IAMOIDC.png)
+![OIDC](assets/IAM OIDC.png)
 
 ⚙️ Stack
-
 Docker → Docker Hub → Terraform → GitHub Actions → AWS EC2
 
 🔥 What makes this production-grade
