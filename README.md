@@ -18,7 +18,7 @@ User → GitHub → GitHub Actions → Terraform → AWS EC2 → Flask App
 ![EC2](assets/EC2.png)
 
 ### 🔐 OIDC Authentication Setup
-![OIDC](assets/IAM-OIDC.png)
+![OIDC](assets/oidc.png)
 
 ⚙️ Stack
 Docker → Docker Hub → Terraform → GitHub Actions → AWS EC2
