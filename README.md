@@ -83,7 +83,7 @@ Docker image: shashikarandev/flask-webapp:v1
 
 ## 📁 Repository Structure
 
-```bash
+```
 aws-devops-journey/
 ├── .github/workflows/terraform.yml
 ├── terraform-journey/
@@ -99,10 +99,6 @@ aws-devops-journey/
 ├── assets/
 └── README.md
 
-
----
-
-## 🔥 Tools Section (FIXED)
 ## 🛠 Tools & Technologies
 
 - **Infrastructure:** Terraform, AWS  
@@ -112,8 +108,7 @@ aws-devops-journey/
 - **OS:** Linux, Bash  
 
 ## 👨‍💻 Author
-
-**G. Shashi Karan**  
+G. Shashi Karan
 Hyderabad, India  
 
 🔗 GitHub: https://github.com/ShashiKaran-git  
