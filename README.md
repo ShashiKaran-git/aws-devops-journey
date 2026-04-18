@@ -1,16 +1,26 @@
 🚀 AWS DevOps Journey
 
-Production grade DevOps system built from scratch
-
 Not tutorials. Real infrastructure. Real automation.
+
+Built a production-style DevOps system using Terraform, AWS, Docker, and CI/CD pipelines.
+
+💡 Real-world debugging experience:
+
+Resolved a 504 Gateway Timeout caused by security group misconfiguration and port mismatch between ALB and application.
+
+This project demonstrates real-world infrastructure design, automation, and debugging experience.
 
 🌍 Live Project Flask App on AWS
 
 A containerized Flask application deployed on AWS using Infrastructure as Code and CI/CD.
 
-🔗 Architecture
+## 🏗 Architecture
 
-User → GitHub → GitHub Actions → Terraform → AWS EC2 → Flask App
+### CI/CD Flow
+GitHub → GitHub Actions → Terraform → AWS
+
+### Runtime Flow
+User → ALB → Target Group → Auto Scaling Group → EC2 → Docker → Flask App
 
 ## 📸 Proof (Real Execution)
 ### 🔍 Terraform Plan (PR Comment)
@@ -25,15 +35,22 @@ User → GitHub → GitHub Actions → Terraform → AWS EC2 → Flask App
 ### 🔐 OIDC Authentication Setup
 ![OIDC](assets/oidc.png)
 
-⚙️ Stack
-Docker → Docker Hub → Terraform → GitHub Actions → AWS EC2
+## ⚙️ Tech Stack
+
+- **Infrastructure:** Terraform, AWS  
+- **Containers:** Docker  
+- **CI/CD:** GitHub Actions + OIDC  
+- **Orchestration:** Kubernetes (Minikube) 
 
 🔥 What makes this production-grade
-No manual deployments - everything via Git workflow
-CI/CD pipeline with PR-based plan & controlled apply
-OIDC authentication - no AWS credentials stored
-Remote state in S3 + DynamoDB locking
-Dynamic AMI lookup (no hardcoding)
+
+- Infrastructure as Code using Terraform
+- Remote state with S3 + DynamoDB locking
+- CI/CD pipeline with PR-based plan and controlled apply
+- Secure authentication using AWS OIDC (no static credentials)
+- Auto Scaling Group for dynamic scaling
+- Application Load Balancer for traffic distribution
+- Health checks for fault tolerance
 
 🧱 Infrastructure Built
 🌐 Networking
@@ -62,16 +79,51 @@ Plan job: fmt → init → validate → plan → PR comment
 Apply job: runs only after merge
 Auth: AWS OIDC (temporary credentials, auto-expire)
 
-☸️ Kubernetes
-Flask app deployed on Kubernetes (minikube):
-3 replicas (RollingUpdate)
-ConfigMaps + Secrets
-Liveness & Readiness probes
-Resource limits
-NodePort Service
-Canary deployment tested
+☸️ Kubernetes (Learning Extension)
+
+To extend this project, the same Flask application was deployed on Kubernetes (Minikube):
+
+- 3 replicas (RollingUpdate)
+- ConfigMaps & Secrets
+- Liveness & Readiness probes
+- Resource limits
+- NodePort Service
+- Canary deployment tested
+
+This demonstrates understanding of container orchestration beyond EC2-based deployments.
 
 Docker image: shashikarandev/flask-webapp:v1
+
+## Project Overview
+Deployed a highly available Flask application using AWS ALB, Auto Scaling Group, and Terraform.
+
+## Architecture
+User → ALB → Target Group → ASG → EC2 → Docker → Flask
+
+## Features
+- Load balancing using ALB
+- Auto scaling using ASG
+- Dockerized application deployment
+- Health checks and fault tolerance
+
+## Screenshots
+### Load Balancer Working
+![ALB](assets/alb-working.png)
+
+### Target Group Healthy
+![Target Group](assets/target-healthy.png)
+
+### EC2 Instances (ASG)
+![EC2 Instances](assets/EC2-inc.png)
+
+### Architecture
+![Architecture](assets/architecture.png)
+
+## Key Learnings
+- Debugged 504 Gateway Timeout
+- Fixed security group misconfiguration
+- Resolved port mismatch (80 vs 5000)
+- Implemented real-world DevOps architecture
 
 ## 📚 Terraform Levels Completed
 
