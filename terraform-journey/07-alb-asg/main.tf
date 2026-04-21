@@ -55,15 +55,42 @@ resource "aws_launch_template" "flask_app" {
     data.terraform_remote_state.vpc.outputs.web_security_group_id
   ]
 
-  user_data = base64encode(<<-EOF
-    #!/bin/bash
-    apt-get update -y
-    apt-get install -y docker.io
-    systemctl start docker
-    systemctl enable docker
-    docker pull shashikarandev/flask-webapp:v1
-    docker run -d -p 5000:5000 shashikarandev/flask-webapp:v1
-  EOF
+user_data = base64encode(<<-EOF
+#!/bin/bash
+apt-get update -y
+apt-get install -y docker.io
+
+systemctl start docker
+systemctl enable docker
+
+sudo docker pull shashikarandev/flask-webapp:v1
+sudo docker run -d -p 5000:5000 shashikarandev/flask-webapp:v1
+
+# Install CloudWatch agent
+cd /tmp
+wget https://s3.amazonaws.com/amazoncloudwatch-agent/ubuntu/amd64/latest/amazon-cloudwatch-agent.deb
+dpkg -i amazon-cloudwatch-agent.deb || apt-get install -f -y
+mkdir -p /opt/aws/amazon-cloudwatch-agent/etc
+
+cat <<EOF > /opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json
+{
+  "logs": {
+    "logs_collected": {
+      "files": {
+        "collect_list": [
+          {
+            "file_path": "/var/lib/docker/containers/*/*.log",
+            "log_group_name": "docker-logs",
+            "log_stream_name": "{instance_id}"
+          }
+        ]
+      }
+    }
+  }
+}
+EOF
+
+/opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -c file:/opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json -s
   )
 
   tag_specifications {
