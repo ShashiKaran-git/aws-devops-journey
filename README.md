@@ -14,13 +14,10 @@ This project demonstrates real-world infrastructure design, automation, and debu
 
 A containerized Flask application deployed on AWS using Infrastructure as Code and CI/CD.
 
-## 🏗 Architecture
+🏗 Architecture
 
-### CI/CD Flow
-GitHub → GitHub Actions → Terraform → AWS
-
-### Runtime Flow
 User → ALB → Target Group → Auto Scaling Group → EC2 → Docker → Flask App
+Logs → CloudWatch (centralized logging & monitoring)
 
 ## 📸 Proof (Real Execution)
 ### 🔍 Terraform Plan (PR Comment)
@@ -40,7 +37,19 @@ User → ALB → Target Group → Auto Scaling Group → EC2 → Docker → Flas
 - **Infrastructure:** Terraform, AWS  
 - **Containers:** Docker  
 - **CI/CD:** GitHub Actions + OIDC  
-- **Orchestration:** Kubernetes (Minikube) 
+- **Orchestration:** Kubernetes (Minikube)
+
+## 🔍 Observability (CloudWatch)
+
+Implemented CloudWatch Agent to collect logs directly from Docker containers:
+
+* Collected logs from `/var/lib/docker/containers/*/*.log`
+* Centralized logs in CloudWatch (`docker-logs` log group)
+* Used logs to verify ALB health checks and application behavior
+* Enabled real-time debugging without SSH access
+
+This simulates real-world production monitoring systems.
+
 
 🔥 What makes this production-grade
 
