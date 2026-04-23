@@ -51,6 +51,9 @@ resource "aws_launch_template" "flask_app" {
   image_id      = data.aws_ami.ubuntu.id
   instance_type = "t3.micro"
 
+iam_instance_profile {
+  name = aws_iam_instance_profile.ssm_profile.name
+}
   vpc_security_group_ids = [
     data.terraform_remote_state.vpc.outputs.web_security_group_id
   ]
@@ -65,6 +68,11 @@ systemctl enable docker
 
 sudo docker pull shashikarandev/flask-webapp:v1
 sudo docker run -d -p 5000:5000 shashikarandev/flask-webapp:v1
+
+# Install SSM agent
+snap install amazon-ssm-agent --classic
+systemctl start snap.amazon-ssm-agent.amazon-ssm-agent.service
+systemctl enable snap.amazon-ssm-agent.amazon-ssm-agent.service
 
 # Install CloudWatch agent
 cd /tmp
@@ -169,4 +177,29 @@ resource "aws_autoscaling_group" "flask_asg" {
     value               = "flask-asg-instance"
     propagate_at_launch = true
   }
+}
+
+resource "aws_iam_role" "ssm_role" {
+  name = "ec2-ssm-role"
+
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [{
+      Action = "sts:AssumeRole"
+      Effect = "Allow"
+      Principal = {
+        Service = "ec2.amazonaws.com"
+      }
+    }]
+  })
+}
+
+resource "aws_iam_role_policy_attachment" "ssm_attach" {
+  role       = aws_iam_role.ssm_role.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+}
+
+resource "aws_iam_instance_profile" "ssm_profile" {
+  name = "ssm-profile"
+  role = aws_iam_role.ssm_role.name
 }
