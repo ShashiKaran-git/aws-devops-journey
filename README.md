@@ -50,6 +50,24 @@ Implemented CloudWatch Agent to collect logs directly from Docker containers:
 
 This simulates real-world production monitoring systems.
 
+---
+
+## 🔐 Security
+
+- Enabled AWS Systems Manager (SSM) for secure EC2 access
+- Eliminated SSH key usage and open port 22 dependency
+- Used IAM roles for controlled access
+
+---
+
+## 🛠️ Challenges & Fixes
+
+- Fixed ALB 504 Gateway Timeout issue
+- Resolved security group misconfigurations
+- Debugged port mismatch between ALB and EC2
+- Understood DNS propagation and ALB warm-up delays
+
+---
 
 🔥 What makes this production-grade
 
@@ -61,7 +79,10 @@ This simulates real-world production monitoring systems.
 - Application Load Balancer for traffic distribution
 - Health checks for fault tolerance
 
+---
+
 🧱 Infrastructure Built
+
 🌐 Networking
 Custom VPC (10.0.0.0/16)
 Public + private subnets (multi-AZ)
@@ -69,16 +90,22 @@ Internet Gateway + NAT Gateway
 Route tables + associations
 Security groups (least privilege)
 
+---
+
 💻 Compute
 EC2 provisioned via Terraform
 Docker installed via user_data
 Flask app deployed automatically
 No SSH, no manual steps
 
+---
+
 📦 State Management
 S3 backend (shashi-terraform-state-2026)
 DynamoDB locking (terraform-state-locks)
 Remote state sharing across modules
+
+---
 
 🔄 CI/CD Pipeline
 
@@ -87,6 +114,8 @@ Trigger: PR & push to main (path filtered)
 Plan job: fmt → init → validate → plan → PR comment
 Apply job: runs only after merge
 Auth: AWS OIDC (temporary credentials, auto-expire)
+
+---
 
 ☸️ Kubernetes (Learning Extension)
 
@@ -102,6 +131,8 @@ To extend this project, the same Flask application was deployed on Kubernetes (M
 This demonstrates understanding of container orchestration beyond EC2-based deployments.
 
 Docker image: shashikarandev/flask-webapp:v1
+
+---
 
 ## Project Overview
 Deployed a highly available Flask application using AWS ALB, Auto Scaling Group, and Terraform.
