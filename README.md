@@ -41,6 +41,7 @@ Logs → CloudWatch (centralized logging & monitoring)
 
 ## 🔍 Observability (CloudWatch)
 
+![CloudWatch Logs](assets/cloudwatch.png)
 Implemented CloudWatch Agent to collect logs directly from Docker containers:
 
 * Collected logs from `/var/lib/docker/containers/*/*.log`
