@@ -82,39 +82,55 @@ This simulates real-world production monitoring systems.
 
 ---
 
-🧱 Infrastructure Built
-
-🌐 Networking
-Custom VPC (10.0.0.0/16)
-Public + private subnets (multi-AZ)
-Internet Gateway + NAT Gateway
-Route tables + associations
-Security groups (least privilege)
+# 🧱 Infrastructure Built
 
 ---
 
-💻 Compute
-EC2 provisioned via Terraform
-Docker installed via user_data
-Flask app deployed automatically
-No SSH, no manual steps
+## 🌐 Networking
+
+- Custom VPC (**10.0.0.0/16**)
+- Public + Private Subnets (**Multi-AZ**)
+- Internet Gateway + NAT Gateway
+- Route Tables + Associations
+- Security Groups (**Least Privilege**)
 
 ---
 
-📦 State Management
-S3 backend (shashi-terraform-state-2026)
-DynamoDB locking (terraform-state-locks)
-Remote state sharing across modules
+## 💻 Compute
+
+- EC2 provisioned via **Terraform**
+- Docker installed via **user_data**
+- Flask app deployed **automatically**
+- No SSH, no manual steps (fully automated)
 
 ---
 
-🔄 CI/CD Pipeline
+## 📦 State Management
 
-File: .github/workflows/terraform.yml
-Trigger: PR & push to main (path filtered)
-Plan job: fmt → init → validate → plan → PR comment
-Apply job: runs only after merge
-Auth: AWS OIDC (temporary credentials, auto-expire)
+- S3 Backend (**shashi-terraform-state-2026**)
+- DynamoDB Locking (**terraform-state-locks**)
+- Remote state sharing across modules
+
+---
+
+## 🔄 CI/CD Pipeline
+
+- **File:** `.github/workflows/terraform.yml`
+- **Trigger:** PR & push to `main` (path filtered)
+
+### 🚀 Plan Job
+- `terraform fmt`
+- `terraform init`
+- `terraform validate`
+- `terraform plan`
+- PR comment with plan output
+
+### ✅ Apply Job
+- Runs only after merge to `main`
+
+### 🔐 Authentication
+- AWS OIDC (temporary credentials)
+- No long-term secrets stored
 
 ---
 
