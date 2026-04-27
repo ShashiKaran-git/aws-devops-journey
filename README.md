@@ -47,12 +47,16 @@ Logs → CloudWatch (centralized logging & monitoring)
 ### 🔐 OIDC Authentication Setup
 ![OIDC](assets/oidc.png)
 
+---
+
 ## ⚙️ Tech Stack
 
 - **Infrastructure:** Terraform, AWS  
 - **Containers:** Docker  
 - **CI/CD:** GitHub Actions + OIDC  
 - **Orchestration:** Kubernetes (Minikube)
+
+---
 
 ## 🔍 Observability (CloudWatch)
 
