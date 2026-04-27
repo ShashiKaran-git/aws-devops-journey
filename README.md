@@ -1,23 +1,38 @@
-🚀 AWS DevOps Journey
+# 🚀 AWS DevOps Journey
 
-Not tutorials. Real infrastructure. Real automation.
+> Not tutorials. Real infrastructure. Real automation.
 
-Built a production-style DevOps system using Terraform, AWS, Docker, and CI/CD pipelines.
+Built a **production-style DevOps system** using Terraform, AWS, Docker, and CI/CD pipelines.
 
-💡 Real-world debugging experience:
+---
 
-Resolved a 504 Gateway Timeout caused by security group misconfiguration and port mismatch between ALB and application.
+## 💡 Real-World Debugging Experience
 
-This project demonstrates real-world infrastructure design, automation, and debugging experience.
+- Resolved a **504 Gateway Timeout**
+- Root cause:
+  - Security group misconfiguration
+  - Port mismatch between ALB and application
+- Fixed end-to-end traffic flow
 
-🌍 Live Project Flask App on AWS
+👉 Demonstrates **real production debugging skills**
 
-A containerized Flask application deployed on AWS using Infrastructure as Code and CI/CD.
+---
+
+## 🌍 Live Project: Flask App on AWS
+
+- Containerized Flask application
+- Deployed using **Infrastructure as Code (Terraform)**
+- Fully automated via CI/CD pipeline
+- No manual setup, no SSH access
+
+---
 
 🏗 Architecture
 
 User → ALB → Target Group → Auto Scaling Group → EC2 → Docker → Flask App
 Logs → CloudWatch (centralized logging & monitoring)
+
+---
 
 ## 📸 Proof (Real Execution)
 ### 🔍 Terraform Plan (PR Comment)
